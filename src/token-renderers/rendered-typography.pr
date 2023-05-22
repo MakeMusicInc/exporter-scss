@@ -64,5 +64,9 @@ font-size: {[ inject "rendered-measure" context context.fontSize /]};
 {[/]}
 {[ if (context.letterSpacing.unit === "Percent") ]}letter-spacing: {{ (context.letterSpacing.measure / 100).rounded(2) }}em; {[ else ]}letter-spacing: {[ inject "rendered-measure" context context.letterSpacing /]};
 {[/]}
+{[ if context.textDecoration === "Underline" ]}text-decoration: underline;
+{[/]}
+{[ if context.textCase === "Upper" ]}text-transform: uppercase;
+{[/]}
 
 text-indent: {[ inject "rendered-measure" context context.paragraphIndent /]};
