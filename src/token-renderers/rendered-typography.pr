@@ -66,13 +66,13 @@ font-size: {[ inject "rendered-measure" context context.fontSize /]};
 {[/]}
 
 {[ if (context.textDecoration === "Underline") ]}
-    
+
 text-decoration: underline;
 {[/]}
 
 {[ if (context.textCase === "Upper") ]}
-    
+
 text-transform: uppercase;
 {[/]}
-    
+
 text-indent: {[ inject "rendered-measure" context context.paragraphIndent /]};
