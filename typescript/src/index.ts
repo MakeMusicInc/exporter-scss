@@ -144,12 +144,21 @@ function getFormattedRGB(colorValue) {
 
 Pulsar.registerFunction("sortTokensByName", function (tokens: Token[]) {
   return tokens.sort((a, b) => {
+    const valueRegex = /([a-z]+)-(\d+)/;
+    const aValue = a.name.match(valueRegex);
+    const bValue = b.name.match(valueRegex);
+
+    if (aValue && bValue && aValue[1] == bValue[1]) {
+      return parseInt(aValue[2]) - parseInt(bValue[2]);
+    }
+
     if (a.name < b.name) {
       return -1;
     }
     if (a.name > b.name) {
       return 1;
     }
+
     return 0;
   });
 });
