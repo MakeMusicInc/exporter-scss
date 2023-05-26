@@ -6,8 +6,16 @@ and their value rendered using `rendered-color` blueprint
 
 *}
 {[ let brand = ds.currentBrand() /]}
-{[ for token in ds.tokensByType("Color", brand.id) ]}
+{[ const allTokenGroups = ds.tokenGroupsOfType("Color", brand.id) /]}
+{[ for group in allTokenGroups ]}
+
+{[ const sortedTokens = sortTokensByName(ds.tokensByGroupId(group.id)) /]}
+{[ for token in sortedTokens ]}
 {[ inject "rendered-token-var" context token /]}
-    
+
 
 {[/]}
+{[/]}
+
+
+
